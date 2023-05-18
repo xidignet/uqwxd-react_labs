@@ -32,12 +32,20 @@ const App = () => {
   
 return(
 <div className ="App">
-<h1>Todo List</h1>
-<form>
-<input type ="text" align ="right" />
-<button type ="submit">Add Todo</button>
-</form>
-</div>
+ <div id="todo-list">
+        <h1>Todo List</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+            type="text"
+            onChange={(e) => setTodo(e.target.value)}
+            value={todo}
+        />
+        <button type="submit">Add Todo</button>
+        </form>
+        {todos.map((todo) => <div className="todo" key={todo.id}>
+            <div>{todo.text}</div>
+        </div>)}
+  </div>
 );
 };
 export default App;
